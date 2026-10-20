@@ -1,0 +1,115 @@
+/* =========================================================
+   DROP D — profile.css
+   join the zine · your member card · your plays
+   concept, design & code by ghostly.grl ♥
+   ========================================================= */
+body { background: #0b0b0b; }
+.ld-pass { font-family: var(--f-cond); font-size: clamp(100px, 20vw, 340px); line-height: .85; letter-spacing: .02em; color: var(--ink); }
+
+/* which half shows */
+body.is-member .join, body:not(.is-member) .me { display: none; }
+
+/* =========================================================
+   JOIN
+   ========================================================= */
+.join { min-height: max(100svh, 760px); padding: 120px var(--gutter) 130px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(30px, 5vw, 80px); align-items: center; background: var(--paper); color: var(--ink); }
+.join__t { font-family: var(--f-cond); font-size: clamp(80px, 12vw, 220px); line-height: .84; }
+.join__t span { color: var(--pink-hot); }
+.join__p { margin-top: 22px; max-width: 42ch; font-size: 15px; line-height: 1.55; color: var(--mute); }
+.join__form { display: flex; flex-direction: column; gap: 22px; padding: clamp(22px, 3vw, 40px); background: #fff; border: 2px solid var(--ink); box-shadow: 10px 12px 0 var(--ink); }
+.jf { display: flex; flex-direction: column; gap: 10px; }
+.jf .pix { font-size: 10px; text-transform: uppercase; color: var(--mute); }
+.jf input, .jf select { height: 54px; padding: 0 16px; border: 2px solid var(--ink); background: var(--paper); font-family: var(--f-tag); font-size: 26px; color: var(--ink); outline: 0; border-radius: 0; }
+.jf select { font-family: var(--f-ui); font-size: 15px; font-weight: 600; }
+.jf input:focus, .jf select:focus { border-color: var(--pink-hot); }
+.faces2 { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+.fc { position: relative; aspect-ratio: 1; border-radius: 50%; overflow: hidden; border: 2px solid transparent; transition: transform .4s var(--ease), border-color .3s; }
+.fc .slot { width: 100%; height: 100%; border-radius: 50%; filter: grayscale(1); outline: 0; }
+.fc:hover { transform: scale(1.08) rotate(-4deg); }
+.fc.is-on { border-color: var(--pink-hot); transform: scale(1.1); }
+.fc.is-on .slot { filter: none; }
+.fc--pink { background: var(--pink); display: grid; place-items: center; font-family: var(--f-cond); font-size: 22px; }
+.join__go { align-self: flex-start; display: inline-flex; align-items: center; gap: 14px; height: 58px; padding: 0 28px; border-radius: 99px; background: var(--ink); color: var(--paper); font-family: var(--f-pix); font-size: 12px; text-transform: uppercase; transition: background .3s, color .3s; }
+.join__go:hover { background: var(--pink-hot); color: var(--ink); }
+.join__go i { font-style: normal; }
+.join__small { font-size: 9.5px; text-transform: uppercase; color: var(--mute); }
+
+/* =========================================================
+   ME: the card on a lanyard + stats
+   ========================================================= */
+.me { min-height: 100svh; padding: 90px var(--gutter) 130px; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(30px, 5vw, 80px); align-items: start; color: var(--paper); background: radial-gradient(60% 50% at 25% 30%, rgba(244, 163, 198, .14), transparent 70%), #0b0b0b; }
+.me__lanyard { position: sticky; top: 60px; display: flex; flex-direction: column; align-items: center; perspective: 1200px; }
+.me__strap { width: 200px; height: 200px; overflow: visible; }
+.me__strap path { stroke: var(--pink-hot); stroke-width: 16; stroke-linecap: butt; }
+.me__clip { width: 40px; height: 26px; margin-top: -8px; border-radius: 6px; background: linear-gradient(#d9d9d6, #8d8d8b); box-shadow: 0 2px 4px rgba(0, 0, 0, .5); }
+.card2 {
+  position: relative; width: min(340px, 80vw); margin-top: -4px; padding: 22px; border-radius: 16px; overflow: hidden; cursor: grab;
+  background: linear-gradient(160deg, #fbfaf7, #ece8e0); color: var(--ink); transform-origin: 50% -230px; will-change: transform;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, .6), inset 0 0 0 1px rgba(255, 255, 255, .6);
+}
+.card2::before { /* hole for the clip */ content: ""; position: absolute; left: 50%; top: 10px; width: 46px; height: 10px; margin-left: -23px; border-radius: 6px; background: #0b0b0b; }
+.card2__holo {
+  position: absolute; inset: 0; pointer-events: none; mix-blend-mode: color-dodge; opacity: .55;
+  background: linear-gradient(115deg, transparent 20%, rgba(255, 140, 200, .7) 35%, rgba(140, 220, 255, .7) 45%, rgba(190, 255, 170, .6) 55%, transparent 70%) var(--hx, 50%) var(--hy, 50%) / 250% 250%;
+}
+.card2__top { display: flex; justify-content: space-between; align-items: baseline; margin-top: 14px; }
+.card2__top b { font-family: var(--f-cond); font-weight: 400; font-size: 26px; }
+.card2__top b i { font-style: normal; color: var(--pink-hot); }
+.card2__top .pix { font-size: 11px; padding: 3px 8px; background: var(--ink); color: var(--paper); }
+.card2__face { width: 100%; aspect-ratio: 1.15; margin: 14px 0; border-radius: 6px; outline: 0; background: var(--pink); filter: grayscale(1) contrast(1.15); }
+.card2__face.is-pink { filter: none; display: grid; place-items: center; }
+.card2__face.is-pink::after { content: attr(data-n); font-family: var(--f-cond); font-size: 90px; color: var(--ink); position: static; }
+.card2__name { font-family: var(--f-tag); font-size: clamp(32px, 3.4vw, 46px); line-height: 1; color: var(--pink-hot); word-break: break-word; }
+.card2__dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 14px 0; font-size: 12.5px; }
+.card2__dl dt { font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--mute); padding-top: 2px; }
+.card2__dl dd { margin: 0; font-weight: 600; }
+.card2__bar { height: 42px; background: repeating-linear-gradient(90deg, var(--ink) 0 var(--b1, 2px), transparent var(--b1, 2px) calc(var(--b1, 2px) + var(--g1, 3px))); }
+.card2__foot { margin-top: 8px; font-size: 8.5px; text-transform: uppercase; color: var(--mute); }
+
+.me__copy { display: flex; flex-direction: column; gap: 30px; padding-top: 60px; }
+.me__copy .kicker { color: var(--mute-d); }
+.me__hi { font-family: var(--f-cond); font-size: clamp(60px, 8vw, 140px); line-height: .88; margin-top: -20px; }
+.me__hi span { color: var(--pink); }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.st { padding: 16px; border: 1px solid var(--line-d); }
+.st b { display: block; font-family: var(--f-pix); font-weight: 400; font-size: clamp(26px, 3vw, 44px); line-height: 1; color: var(--paper); }
+.st span { font-size: 11.5px; color: var(--mute-d); }
+.st:first-child { background: var(--pink); border-color: var(--pink); } .st:first-child b, .st:first-child span { color: var(--ink); }
+.me__h { font-family: var(--f-pix); font-size: 11px; text-transform: uppercase; color: var(--pink); margin-bottom: 10px; }
+.me__h small { color: var(--mute-d); font-size: 9.5px; }
+.me__top li { display: grid; grid-template-columns: 30px 44px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 9px 0; border-top: 1px solid var(--line-d); cursor: pointer; transition: padding .4s var(--ease), background .3s; }
+.me__top li:hover { padding-left: 10px; background: rgba(244, 163, 198, .08); }
+.me__top .n { font-family: var(--f-pix); font-size: 11px; color: var(--mute-d); }
+.me__top .slot { width: 44px; height: 44px; }
+.me__top b { display: block; font-family: var(--f-cond); font-weight: 400; font-size: 20px; text-transform: uppercase; line-height: 1; }
+.me__top small { font-size: 12px; color: var(--mute-d); }
+.me__top .pix { font-size: 11px; color: var(--pink); }
+.me__empty { font-size: 14px; color: var(--mute-d); }
+.me__ghosts { display: flex; flex-wrap: wrap; gap: 8px; }
+.me__ghosts a { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px 0 4px; border-radius: 99px; border: 1px solid var(--line-d); font-size: 14px; transition: background .3s, color .3s; }
+.me__ghosts a:hover { background: var(--paper); color: var(--ink); }
+.me__ghosts .slot { width: 32px; height: 32px; border-radius: 50%; outline: 0; filter: grayscale(1); }
+.me__ghosts .pix { font-size: 10px; color: var(--pink); }
+.me__links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.ml { display: flex; flex-direction: column; gap: 6px; padding: 18px; border: 1px solid var(--line-d); transition: border-color .3s, transform .5s var(--ease); }
+.ml:hover { border-color: var(--pink); transform: translateY(-4px); }
+.ml .pix { font-size: 9.5px; text-transform: uppercase; color: var(--mute-d); }
+.ml b { font-family: var(--f-cond); font-weight: 400; font-size: 26px; line-height: 1; text-transform: uppercase; }
+.ml small { font-size: 12px; color: var(--pink); }
+.me__btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.me__btn { height: 44px; padding: 0 18px; border-radius: 99px; border: 1px solid var(--line-d); font-family: var(--f-pix); font-size: 10px; text-transform: uppercase; transition: background .3s, color .3s; }
+.me__btn:hover { background: var(--paper); color: var(--ink); }
+.me__btn--danger { color: #ff6b6b; border-color: rgba(255, 107, 107, .4); }
+
+/* ---------- the header chip (every page) lives in style.css ---------- */
+
+@media (max-width: 1000px) {
+  .join, .me { grid-template-columns: 1fr; }
+  .me__lanyard { position: relative; top: 0; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .me__links { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .faces2 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .me__strap { height: 120px; }
+}

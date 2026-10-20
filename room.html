@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" translate="no" class="notranslate">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="google" content="notranslate" />
+  <title>DROP D — the listening room</title>
+  <meta name="description" content="The listening room: lights off, one record, front to back. Pick a sleeve from the crate and let it play." />
+  <meta name="theme-color" content="#050505" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <!-- concept, design & code by ghostly.grl ♥ -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&family=Pinyon+Script&family=Sedgwick+Ave+Display&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=20261020-15" />
+  <link rel="stylesheet" href="css/room.css?v=20261020-15" />
+</head>
+<body class="is-loading" data-page="room">
+
+  <!-- ================= LOADER: lights off ================= -->
+  <div class="loader loader--room" id="loader" aria-hidden="true">
+    <p class="ld-top"><span>DROP/D</span><span>the listening room</span></p>
+    <p class="ld-room" id="ldRoom">lights off.</p>
+    <p class="ld-line" id="ldLine">phones face down. one record, front to back.</p>
+    <div class="ld-foot"><span>dimming</span><span class="pix" id="ldPct">000%</span></div>
+  </div>
+
+  <div class="cursor" id="cursor" aria-hidden="true"><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><span class="cursor__pick"><svg viewBox="0 0 40 46"><path d="M20 2C11 11 2 23 2 34c0 8 8 11 18 11s18-3 18-11C38 23 29 11 20 2z" /><text x="20" y="38" text-anchor="middle">D</text></svg></span><span class="cursor__tag"><i id="cursorLabel"></i></span></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <main class="room" id="room">
+    <div class="room__bg" id="roomBg" aria-hidden="true"></div>
+    <canvas class="room__viz" id="roomViz" aria-hidden="true"></canvas>
+    <div class="room__dim" aria-hidden="true"></div>
+
+    <!-- top: way out + menu -->
+    <header class="room__top ui">
+      <a href="index.html" class="logo" data-cursor="leave the room">DROP<i>/</i>D</a>
+      <nav class="room__nav" aria-label="Main">
+        <a href="index.html">issue 01</a><a href="issue02.html">issue 02</a><a href="mixtape.html">issue 03</a><a href="artist.html">artists</a><a href="tuning.html">tuning</a><a href="room.html" class="is-here">the room</a>
+      </nav>
+      <p class="room__clock pix" data-clock>00:00</p>
+    </header>
+
+    <!-- the record -->
+    <div class="room__disc" id="disc" data-cursor="play / pause">
+      <div class="room__vinyl" id="vinyl"><span class="room__label slot" id="label"></span><i class="room__hole"></i></div>
+    </div>
+
+    <!-- what's on -->
+    <div class="room__info ui">
+      <p class="kicker">now in the room</p>
+      <p class="room__album" id="album">pick a record</p>
+      <p class="room__artist"><a id="artist" href="artist.html" class="to-artist">—</a> <span class="pix" id="year"></span></p>
+      <p class="room__track"><span class="pix" id="trackN">—</span> <span id="track">the crate is open below</span></p>
+      <div class="room__prog" id="roomProg" data-cursor="seek"><i id="roomFill"></i></div>
+      <p class="room__time pix"><span id="tNow">0:00</span> / <span id="tAll">0:00</span> <span class="room__side" id="side">side a</span></p>
+    </div>
+
+    <!-- tracklist -->
+    <aside class="room__list ui" id="list" aria-label="tracklist"><p class="kicker">the record</p><ol id="tracks"></ol></aside>
+
+    <!-- controls -->
+    <div class="room__ctrl ui">
+      <button class="rc" data-act="prev" aria-label="previous"><svg viewBox="0 0 24 24"><path d="M6 5v14M19 5l-10 7 10 7z" /></svg></button>
+      <button class="rc rc--play" id="rPlay" aria-label="play" data-cursor="play"><svg viewBox="0 0 24 24" class="i-play"><path d="M8 5l11 7-11 7z" /></svg><svg viewBox="0 0 24 24" class="i-pause"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" /></svg></button>
+      <button class="rc" data-act="next" aria-label="next"><svg viewBox="0 0 24 24"><path d="M18 5v14M5 5l10 7-10 7z" /></svg></button>
+      <span class="rc__sep" aria-hidden="true"></span>
+      <div class="rc__modes" role="group" aria-label="visualizer">
+        <button class="rc__mode is-on" data-mode="rings" data-cursor="rings">rings</button>
+        <button class="rc__mode" data-mode="ridges" data-cursor="ridges">ridges</button>
+        <button class="rc__mode" data-mode="dots" data-cursor="dots">dots</button>
+      </div>
+      <span class="rc__sep" aria-hidden="true"></span>
+      <button class="rc__txt" id="crateBtn" data-cursor="dig">crate <kbd>c</kbd></button>
+      <button class="rc__txt" id="lightsBtn" data-cursor="lights">lights <kbd>l</kbd></button>
+      <button class="rc__txt" id="sleepBtn" data-cursor="sleep timer">sleep: off</button>
+      <button class="rc__txt" id="fullBtn" data-cursor="fullscreen">full <kbd>f</kbd></button>
+    </div>
+
+    <!-- the crate -->
+    <section class="crate2" id="crate" aria-label="pick a record">
+      <div class="crate2__head">
+        <p class="crate2__t">PICK A RECORD</p>
+        <p class="crate2__p">drag or scroll to dig · click a sleeve to put it on · <span class="pix" id="crateCount">0</span> records</p>
+        <button class="crate2__x" id="crateClose" data-cursor="close">close ✕</button>
+      </div>
+      <div class="crate2__row" id="crateRow"></div>
+    </section>
+
+    <p class="room__sig ui"><span class="ft-sign">concept, design &amp; code by <span class="sig">ghostly.grl</span> ♥</span></p>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/tracks.js?v=20261020-15"></script>
+  <script src="js/main.js?v=20261020-15"></script>
+  <script src="js/player.js?v=20261020-15"></script>
+  <script src="js/room.js?v=20261020-15"></script>
+</body>
+  <!--
+   *    /\_/\      +
+       ( o.o )   <3  ghostly.grl
+   +    > ^ <          *
+-->
+</html>

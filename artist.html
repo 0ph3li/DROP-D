@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" translate="no" class="notranslate">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="google" content="notranslate" />
+  <title>DROP D — artists</title>
+  <meta name="description" content="Every artist in DROP D, one page each: their songs from every issue, their records, and who to listen to next." />
+  <meta name="theme-color" content="#0b0b0b" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <!-- concept, design & code by ghostly.grl ♥ -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&family=Pinyon+Script&family=Sedgwick+Ave+Display&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=20261020-15" />
+  <link rel="stylesheet" href="css/artist.css?v=20261020-15" />
+</head>
+<body class="is-loading" data-page="artist">
+
+  <!-- ================= LOADER: the sleeve slides out ================= -->
+  <div class="loader loader--artist" id="loader" aria-hidden="true">
+    <p class="ld-top"><span>DROP/D</span><span id="ldKick">artist file</span></p>
+    <p class="ld-name" id="ldName">artists</p>
+    <p class="ld-line" id="ldLine">pulling the sleeve out of the crate…</p>
+    <div class="ld-foot"><span>every song, every issue</span><span class="pix" id="ldPct">000%</span></div>
+  </div>
+
+  <!-- global fx -->
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><span class="cursor__pick"><svg viewBox="0 0 40 46"><path d="M20 2C11 11 2 23 2 34c0 8 8 11 18 11s18-3 18-11C38 23 29 11 20 2z" /><text x="20" y="38" text-anchor="middle">D</text></svg></span><span class="cursor__tag"><i id="cursorLabel"></i></span></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="hdr" id="hdr">
+    <a href="index.html" class="logo" aria-label="DROP D, issue 01" data-cursor="issue 01">DROP<i>/</i>D</a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" data-scramble><span>issue 01</span></a>
+      <a href="issue02.html" data-scramble><span>issue 02</span></a>
+      <a href="mixtape.html" data-scramble><span>issue 03</span></a>
+      <a href="artist.html" data-scramble><span>all artists</span></a>
+      <a href="tuning.html" data-scramble><span>tuning</span></a>
+      <a href="room.html" data-scramble><span>the room</span></a>
+    </nav>
+    <p class="hdr__now"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span id="hdrNow">nothing on the deck</span></p>
+  </header>
+
+  <main id="top">
+
+    <!-- ========== A · ARTIST HERO ========== -->
+    <section class="ah" id="ah">
+      <div class="ah__vinyl" id="ahVinyl"><span class="ah__label slot" id="ahLabel"></span><i class="ah__hole"></i></div>
+      <div class="ah__photo slot" id="ahPhoto"></div>
+      <p class="ah__print" aria-hidden="true">riso print · <i></i><i></i> · two colours, slightly off</p>
+      <div class="ah__copy">
+        <p class="ah__k"><span class="pix" id="ahNum">01 / 19</span><span>artist file</span></p>
+        <h1 class="ah__name" id="ahName">—</h1>
+        <p class="ah__meta"><span id="ahFrom">—</span><i>·</i><span id="ahSince" class="pix">—</span><i>·</i><span id="ahGenre">—</span></p>
+        <p class="ah__issues" id="ahIssues"></p>
+        <div class="ah__btns">
+          <button class="ah__play mag" id="ahPlay" data-cursor="play them"><svg viewBox="0 0 24 24" class="i-play"><path d="M8 5l11 7-11 7z" /></svg><svg viewBox="0 0 24 24" class="i-pause"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" /></svg></button>
+          <p class="ah__count"><b class="pix" id="ahCount">0</b> songs on DROP D<br /><span id="ahTime">0:00</span> of them</p>
+        </div>
+      </div>
+      <p class="ah__bg" id="ahBg" aria-hidden="true">—</p>
+    </section>
+
+    <!-- ========== B · SONGS ========== -->
+    <section class="as" id="songs">
+      <div class="as__head">
+        <h2 class="as__t">ON THE DECK</h2>
+        <p class="as__p">every song by them, from every issue. the <b>+</b> puts it on your tape (issue 03).</p>
+      </div>
+      <ol class="as__list" id="asList"></ol>
+    </section>
+
+    <!-- ========== C · RECORDS ========== -->
+    <section class="ar" id="records">
+      <h2 class="ar__t">THE RECORDS</h2>
+      <div class="ar__row" id="arRow"></div>
+    </section>
+
+    <!-- ========== D · ABOUT + FOR FANS OF ========== -->
+    <section class="ab" id="about">
+      <p class="ab__k kicker">about</p>
+      <p class="ab__bio" id="abBio">—</p>
+      <div class="ab__ffo"><span class="pix">if you like them, try</span><div id="abFfo"></div></div>
+    </section>
+
+    <!-- ========== E · NEXT ARTIST ========== -->
+    <a class="nx" id="nx" href="artist.html" data-cursor="next artist">
+      <span class="nx__k kicker">next in the crate</span>
+      <span class="nx__name" id="nxName">—</span>
+      <span class="nx__photo slot" id="nxPhoto"></span>
+    </a>
+
+    <!-- ========== F · ALL ARTISTS ========== -->
+    <section class="ax" id="all">
+      <div class="ax__head">
+        <h2 class="ax__t"><span id="axCount">19</span> ARTISTS,<br /><em>one tuning</em></h2>
+        <p class="ax__p">everyone in issues 01, 02 and 03. hover for the face, click for the file.</p>
+      </div>
+      <ul class="ax__grid" id="axGrid"></ul>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="ft">
+      <div class="ft__big" aria-hidden="true">DROP<i>/</i>D</div>
+      <div class="ft__grid">
+        <div><p class="kicker">the zine</p><p class="ft__links"><a href="about.html">about</a><a href="profile.html">your profile</a><a href="index.html">issue 01</a><a href="issue02.html">issue 02</a><a href="mixtape.html">issue 03 (yours)</a></p></div>
+        <div><p class="kicker">this page</p><p class="ft__links"><a href="#top" data-jump>the artist</a><a href="#songs" data-jump>songs</a><a href="#records" data-jump>records</a><a href="#all" data-jump>all artists</a></p></div>
+        <div><p class="kicker">tuning</p><p class="ft__links ft__tune pix">D A D G B E</p></div>
+        <div><p class="kicker">right now</p><p class="ft__clock pix" data-clock>00:00</p><a href="#top" class="link-arrow" data-jump>back up ↑</a></div>
+      </div>
+      <div class="ft__bottom">
+        <span>© 2026 DROP D — a concept. the records belong to the bands.</span>
+        <span class="ft-sign">concept, design &amp; code by <span class="sig">ghostly.grl</span> ♥</span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ================= THE PLAYER (follows you) ================= -->
+  <div class="bar" id="bar" aria-label="Player">
+    <div class="bar__cover slot slot--mini" id="barCover"></div>
+    <div class="bar__meta"><p class="bar__t" id="barTitle">nothing on the deck</p><p class="bar__a" id="barArtist">pick a record</p></div>
+    <div class="bar__ctrl">
+      <button class="ic" id="prevBtn" aria-label="previous"><svg viewBox="0 0 24 24"><path d="M6 5v14M19 5l-10 7 10 7z" /></svg></button>
+      <button class="play" id="playBtn" aria-label="play" data-cursor="play"><svg viewBox="0 0 24 24" class="i-play"><path d="M8 5l11 7-11 7z" /></svg><svg viewBox="0 0 24 24" class="i-pause"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" /></svg></button>
+      <button class="ic" id="nextBtn" aria-label="next"><svg viewBox="0 0 24 24"><path d="M18 5v14M5 5l10 7-10 7z" /></svg></button>
+    </div>
+    <div class="bar__time"><span id="tCur" class="pix">0:00</span><div class="prog" id="prog" data-cursor="seek"><div class="prog__bars" id="progBars"></div><div class="prog__fill" id="progFill"></div><i class="prog__knob" id="progKnob"></i></div><span id="tDur" class="pix">0:00</span></div>
+    <canvas class="viz" id="viz" width="120" height="36" aria-hidden="true"></canvas>
+    <div class="bar__opts">
+      <button class="ic" id="shuffleBtn" aria-label="shuffle"><svg viewBox="0 0 24 24"><path d="M4 7h3c5 0 5 10 10 10h3M4 17h3c2 0 3-1.5 4-3.5M13 9.5C14 8 15 7 17 7h3M18 4l3 3-3 3M18 14l3 3-3 3" /></svg></button>
+      <button class="ic" id="loopBtn" aria-label="repeat"><svg viewBox="0 0 24 24"><path d="M17 3l3 3-3 3M20 6H8a4 4 0 0 0-4 4v1M7 21l-3-3 3-3M4 18h12a4 4 0 0 0 4-4v-1" /></svg><i class="ic__one">1</i></button>
+      <div class="vol"><button class="ic" id="muteBtn" aria-label="mute"><svg viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6L8 10zM16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11" /></svg></button><input type="range" id="vol" min="0" max="1" step="0.01" value="0.8" aria-label="volume" /></div>
+    </div>
+    <div class="bar__mprog" aria-hidden="true"><i id="mProg"></i></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/tracks.js?v=20261020-15"></script>
+  <script src="js/main.js?v=20261020-15"></script>
+  <script src="js/player.js?v=20261020-15"></script>
+  <script src="js/artist.js?v=20261020-15"></script>
+</body>
+  <!--
+   *    /\_/\      +
+       ( o.o )   <3  ghostly.grl
+   +    > ^ <          *
+-->
+</html>

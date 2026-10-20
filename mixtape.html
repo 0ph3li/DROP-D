@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" translate="no" class="notranslate">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="google" content="notranslate" />
+  <title>DROP D — issue 03 is yours: make a mixtape</title>
+  <meta name="description" content="DROP D issue 03 is yours. Pick ten songs from the crate, name your tape, print the j-card." />
+  <meta name="theme-color" content="#f2f0eb" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <!-- concept, design & code by ghostly.grl ♥ -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&family=Pinyon+Script&family=Sedgwick+Ave+Display&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=20261020-15" />
+  <link rel="stylesheet" href="css/mixtape.css?v=20261020-15" />
+</head>
+<body class="is-loading" data-page="mixtape">
+
+  <!-- ================= LOADER: rewinding ================= -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <p class="ld-top"><span>DROP/D</span><span>issue 03 — yours</span></p>
+    <p class="ld-03" id="ld03"><span>0</span><span>3</span></p>
+    <p class="ld-line" id="ldLine">rewinding with a pencil…</p>
+    <div class="ld-foot"><span>forty-three songs, two sides, one tape</span><span class="pix" id="ldPct">000%</span></div>
+  </div>
+
+  <!-- global fx -->
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><span class="cursor__pick"><svg viewBox="0 0 40 46"><path d="M20 2C11 11 2 23 2 34c0 8 8 11 18 11s18-3 18-11C38 23 29 11 20 2z" /><text x="20" y="38" text-anchor="middle">D</text></svg></span><span class="cursor__tag"><i id="cursorLabel"></i></span></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="hdr" id="hdr">
+    <a href="index.html" class="logo" aria-label="DROP D, issue 01" data-cursor="issue 01">DROP<i>/</i>D</a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" data-scramble><span>issue 01</span></a>
+      <a href="issue02.html" data-scramble><span>issue 02</span></a>
+      <a href="#pick" data-jump data-scramble><span>pick</span></a>
+      <a href="#tape" data-jump data-scramble><span>your tape</span></a>
+      <a href="#eva" data-jump data-scramble><span>evanescence</span></a>
+      <a href="#jcard" data-jump data-scramble><span>j-card</span></a>
+      <a href="artist.html" data-scramble><span>artists</span></a>
+      <a href="tuning.html" data-scramble><span>tuning</span></a>
+      <a href="room.html" data-scramble><span>the room</span></a>
+    </nav>
+    <p class="hdr__now"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span id="hdrNow">nothing on the deck</span></p>
+  </header>
+
+  <main id="top">
+
+    <!-- ========== 1 · MIX [cassette] TAPE (the wi·der split word) ========== -->
+    <section class="mx" id="mx">
+      <svg class="mx__wires" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-20 420 C 240 300, 420 520, 620 400 S 900 300, 1100 420 S 1300 520, 1460 380" />
+        <path d="M-20 380 C 260 460, 400 300, 640 420 S 880 520, 1120 380 S 1320 300, 1460 440" />
+        <path d="M-20 440 C 300 360, 480 470, 700 390 S 960 330, 1160 450 S 1340 470, 1460 400" />
+        <path d="M-20 400 C 200 520, 500 330, 720 430 S 980 480, 1180 370 S 1360 360, 1460 420" />
+      </svg>
+      <h1 class="mx__word"><span class="mx__l">MIX</span><span class="mx__r">TAPE</span></h1>
+      <div class="cassette cassette--hero" id="heroTape" data-cursor="press play">
+        <div class="cassette__label"><span class="cassette__title">issue 03</span><span class="cassette__side pix">A</span></div>
+        <div class="cassette__window"><i class="reel reel--l"></i><i class="reel reel--r"></i><i class="cassette__ribbon"></i></div>
+        <i class="cassette__screw cassette__screw--1"></i><i class="cassette__screw cassette__screw--2"></i><i class="cassette__screw cassette__screw--3"></i><i class="cassette__screw cassette__screw--4"></i>
+        <i class="cassette__bottom"></i>
+      </div>
+      <p class="mx__p">issue 03 is yours. pick up to ten songs from all three crates, name the tape, print the j-card. <br />it's how we used to say <em>i like you</em>.</p>
+      <a href="#pick" class="mx__go mag" data-jump data-cursor="start"><span>start your tape</span><i>↓</i></a>
+    </section>
+
+    <!-- ========== 2 · PICK (lotri editorial cards) ========== -->
+    <section class="pick" id="pick">
+      <div class="pick__head">
+        <h2 class="pick__t"><span>PICK</span><span class="pick__t2">up to ten</span></h2>
+        <div class="pick__side">
+          <p class="pick__count"><b class="pix" id="pickCount">0</b><span>/ 10 on the tape</span></p>
+          <div class="cats" id="pickFilter">
+            <button class="cat is-on" data-f="all">all</button>
+            <button class="cat" data-f="01">issue 01</button>
+            <button class="cat" data-f="02">issue 02</button>
+            <button class="cat" data-f="03">issue 03</button>
+            <button class="cat" data-f="evanescence">evanescence ♥</button>
+            <button class="cat" data-f="nu metal">nu metal</button>
+            <button class="cat" data-f="alt metal">alt metal</button>
+          </div>
+        </div>
+      </div>
+      <ul class="pick__grid" id="pickGrid"><!-- filled by mixtape.js: twenty cards --></ul>
+    </section>
+
+    <!-- ========== 3 · YOUR TAPE (fleetwood dark player) ========== -->
+    <section class="tape" id="tape">
+      <div class="tape__bg" id="tapeBg" aria-hidden="true"></div>
+      <div class="tape__in">
+        <div class="tape__deck">
+          <div class="cassette cassette--big" id="bigTape">
+            <div class="cassette__label"><span class="cassette__title" id="bigTitle">untitled tape</span><span class="cassette__side pix" id="bigSide">A</span></div>
+            <div class="cassette__window"><i class="reel reel--l" id="reelL"></i><i class="reel reel--r" id="reelR"></i><i class="cassette__ribbon"></i></div>
+            <i class="cassette__screw cassette__screw--1"></i><i class="cassette__screw cassette__screw--2"></i><i class="cassette__screw cassette__screw--3"></i><i class="cassette__screw cassette__screw--4"></i>
+            <i class="cassette__bottom"></i>
+          </div>
+          <div class="tape__ctrl">
+            <button class="tape__btn mag" id="tapePlay" data-cursor="play the tape"><svg viewBox="0 0 24 24" class="i-play"><path d="M8 5l11 7-11 7z" /></svg><svg viewBox="0 0 24 24" class="i-pause"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" /></svg></button>
+            <button class="tape__mini" id="tapeShuffle" data-cursor="shuffle it">shuffle</button>
+            <button class="tape__mini" id="tapeFlip" data-cursor="flip">flip to side b</button>
+            <button class="tape__mini" id="tapeClear" data-cursor="erase">erase</button>
+          </div>
+          <p class="tape__total"><span class="pix" id="tapeTime">0:00</span> on tape · <span class="pix" id="tapeLeft">90:00</span> left on a C90</p>
+        </div>
+        <div class="tape__copy">
+          <p class="kicker">name your tape</p>
+          <input class="tape__name" id="tapeName" maxlength="28" placeholder="songs for the bus" aria-label="tape name" />
+          <label class="tape__by"><span class="pix">made by</span><input id="tapeBy" maxlength="22" placeholder="you" aria-label="made by" /></label>
+          <div class="tape__sides">
+            <div><p class="tape__h">side a</p><ol class="tape__list" id="sideA"></ol></div>
+            <div><p class="tape__h">side b</p><ol class="tape__list" id="sideB"></ol></div>
+          </div>
+          <p class="tape__empty" id="tapeEmpty">nothing on the tape yet. go back up and pick a few. <a href="#pick" data-jump>↑ pick</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 4 · EVANESCENCE: the one album we won't cut up ========== -->
+    <section class="eva" id="eva">
+      <div class="eva__bg slot" data-img="img/ISSUE03/evanescence-band.jpg" aria-hidden="true"></div>
+      <i class="eva__rays" aria-hidden="true"></i>
+      <div class="eva__bubbles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="eva__in">
+        <div class="eva__left">
+          <p class="kicker">the one album we won't cut up</p>
+          <h2 class="eva__t">Evanescence</h2>
+          <p class="eva__meta pix">2011 · third studio album · 12 tracks · <span id="evaLen">47:16</span></p>
+          <div class="eva__objects">
+            <div class="jewel" id="evaJewel" data-cursor="play it whole">
+              <div class="jewel__cd" id="evaCd"><span class="jewel__label slot" data-img="img/RECORDS/evanescence-2011.jpg" data-n="E"></span><i class="jewel__hole"></i></div>
+              <div class="jewel__case"><span class="jewel__cover slot" data-img="img/RECORDS/evanescence-2011.jpg" data-label="RECORDS/evanescence-2011.jpg · the album cover"></span><i class="jewel__hinge"></i><i class="jewel__gloss"></i></div>
+            </div>
+            <div class="eva__porthole slot" data-img="img/ISSUE03/amy-lee.jpg" data-n="amy lee"></div>
+          </div>
+          <p class="eva__p">some albums are already mixtapes. this one debuted at number one on the billboard 200, and it plays best in order, from "what you want" all the way down to "swimming home". so here it is, whole. no shuffle allowed.</p>
+          <div class="eva__btns">
+            <button class="eva__btn mag" id="evaPlay" data-cursor="front to back"><span>play front to back</span><i>↓</i></button>
+            <button class="eva__btn eva__btn--line mag" id="evaTape" data-cursor="record it"><span>put it on my tape</span></button>
+            <a class="eva__btn eva__btn--line mag" href="room.html?r=evanescence-evanescence" data-cursor="lights off"><span>listen in the room ↗</span></a>
+          </div>
+        </div>
+        <ol class="eva__list" id="evaList"><!-- filled by mixtape.js --></ol>
+      </div>
+      <p class="eva__more">more evanescence (going under, my immortal, call me when you're sober) is in the crate above: <button id="evaFilter">filter "evanescence ♥" ↑</button></p>
+    </section>
+
+    <!-- ========== 5 · J-CARD ========== -->
+    <section class="jcard" id="jcard">
+      <div class="jcard__head">
+        <h2 class="jcard__t">THE J-CARD</h2>
+        <p class="jcard__p">the paper that goes inside the case. pick a colour, print it, cut along the lines, fold twice.</p>
+        <div class="jcard__swatches" id="swatches">
+          <button class="sw is-on" data-c="pink" style="--c:#f4a3c6" aria-label="pink"></button>
+          <button class="sw" data-c="paper" style="--c:#f2f0eb" aria-label="paper"></button>
+          <button class="sw" data-c="ink" style="--c:#0b0b0b" aria-label="black"></button>
+          <button class="sw" data-c="mood" style="--c:#6cf05a" aria-label="green"></button>
+          <button class="sw" data-c="type-o" style="--c:#2fd36b" aria-label="type o green"></button>
+        </div>
+      </div>
+      <div class="jcard__paper" id="jPaper" data-theme="pink">
+        <div class="jc jc--cover">
+          <p class="jc__issue pix">DROP/D · issue 03</p>
+          <p class="jc__title" id="jTitle">untitled tape</p>
+          <div class="jc__art slot" id="jArt"></div>
+          <p class="jc__by">made by <span id="jBy">you</span></p>
+        </div>
+        <div class="jc jc--spine"><p id="jSpine">untitled tape — DROP/D</p></div>
+        <div class="jc jc--back">
+          <p class="jc__h">side a</p><ol class="jc__list" id="jA"></ol>
+          <p class="jc__h">side b</p><ol class="jc__list" id="jB"></ol>
+          <p class="jc__foot pix" id="jFoot">0:00 · tuned to d</p>
+        </div>
+      </div>
+      <div class="jcard__actions">
+        <button class="btn-ink mag" id="jPrint" data-cursor="print"><span>print the j-card</span></button>
+        <button class="btn-ink btn-ink--line mag" id="jShare" data-cursor="copy"><span>copy a link to this tape</span></button>
+      </div>
+    </section>
+
+    <!-- ========== ticker back to the issues ========== -->
+    <section class="next" aria-label="back to the issues">
+      <p class="next__k"><span class="pix">issues 01 + 02</span> — every song on this page came from here</p>
+      <a href="issue02.html" class="next__band" data-cursor="go back"><div class="next__track" id="nextTrack"></div></a>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="ft">
+      <div class="ft__big" aria-hidden="true">DROP<i>/</i>D</div>
+      <div class="ft__grid">
+        <div><p class="kicker">the zine</p><p class="ft__links"><a href="about.html">about</a><a href="profile.html">your profile</a><a href="artist.html">all artists</a><a href="tuning.html">find your tuning</a><a href="room.html">the listening room</a><a href="index.html">issue 01</a><a href="issue02.html">issue 02</a><a href="mixtape.html">issue 03 (yours)</a></p></div>
+        <div><p class="kicker">this page</p><p class="ft__links"><a href="#mx" data-jump>mix · tape</a><a href="#pick" data-jump>pick</a><a href="#tape" data-jump>your tape</a><a href="#eva" data-jump>evanescence</a><a href="#jcard" data-jump>j-card</a></p></div>
+        <div><p class="kicker">tuning</p><p class="ft__links ft__tune pix">D A D G B E</p></div>
+        <div><p class="kicker">right now</p><p class="ft__clock pix" data-clock>00:00</p><a href="#top" class="link-arrow" data-jump>rewind ↑</a></div>
+      </div>
+      <div class="ft__bottom">
+        <span>© 2026 DROP D — a concept. the records belong to the bands. the tape is yours.</span>
+        <span class="ft-sign">concept, design &amp; code by <span class="sig">ghostly.grl</span> ♥</span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ================= THE PLAYER (follows you) ================= -->
+  <div class="bar" id="bar" aria-label="Player">
+    <div class="bar__cover slot slot--mini" id="barCover"></div>
+    <div class="bar__meta"><p class="bar__t" id="barTitle">nothing on the deck</p><p class="bar__a" id="barArtist">pick a record</p></div>
+    <div class="bar__ctrl">
+      <button class="ic" id="prevBtn" aria-label="previous"><svg viewBox="0 0 24 24"><path d="M6 5v14M19 5l-10 7 10 7z" /></svg></button>
+      <button class="play" id="playBtn" aria-label="play" data-cursor="play"><svg viewBox="0 0 24 24" class="i-play"><path d="M8 5l11 7-11 7z" /></svg><svg viewBox="0 0 24 24" class="i-pause"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" /></svg></button>
+      <button class="ic" id="nextBtn" aria-label="next"><svg viewBox="0 0 24 24"><path d="M18 5v14M5 5l10 7-10 7z" /></svg></button>
+    </div>
+    <div class="bar__time"><span id="tCur" class="pix">0:00</span><div class="prog" id="prog" data-cursor="seek"><div class="prog__bars" id="progBars"></div><div class="prog__fill" id="progFill"></div><i class="prog__knob" id="progKnob"></i></div><span id="tDur" class="pix">0:00</span></div>
+    <canvas class="viz" id="viz" width="120" height="36" aria-hidden="true"></canvas>
+    <div class="bar__opts">
+      <button class="ic" id="shuffleBtn" aria-label="shuffle"><svg viewBox="0 0 24 24"><path d="M4 7h3c5 0 5 10 10 10h3M4 17h3c2 0 3-1.5 4-3.5M13 9.5C14 8 15 7 17 7h3M18 4l3 3-3 3M18 14l3 3-3 3" /></svg></button>
+      <button class="ic" id="loopBtn" aria-label="repeat"><svg viewBox="0 0 24 24"><path d="M17 3l3 3-3 3M20 6H8a4 4 0 0 0-4 4v1M7 21l-3-3 3-3M4 18h12a4 4 0 0 0 4-4v-1" /></svg><i class="ic__one">1</i></button>
+      <div class="vol"><button class="ic" id="muteBtn" aria-label="mute"><svg viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6L8 10zM16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11" /></svg></button><input type="range" id="vol" min="0" max="1" step="0.01" value="0.8" aria-label="volume" /></div>
+    </div>
+    <div class="bar__mprog" aria-hidden="true"><i id="mProg"></i></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/tracks.js?v=20261020-15"></script>
+  <script src="js/main.js?v=20261020-15"></script>
+  <script src="js/player.js?v=20261020-15"></script>
+  <script src="js/mixtape.js?v=20261020-15"></script>
+</body>
+  <!--
+   *    /\_/\      +
+       ( o.o )   <3  ghostly.grl
+   +    > ^ <          *
+-->
+</html>

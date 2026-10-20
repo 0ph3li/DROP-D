@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" translate="no" class="notranslate">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="google" content="notranslate" />
+  <title>DROP D — issue 02: inspired by the fear of being average</title>
+  <meta name="description" content="DROP D issue 02: the ones your friends haven't heard yet. Violent Vira, Wisp, Pantera, Type O Negative, Babyteeth, Buckcherry, Fleshwater, whatsaheart, Lacuna Coil." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <!-- concept, design & code by ghostly.grl ♥ -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&family=Pinyon+Script&family=Sedgwick+Ave+Display&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css?v=20261020-15" />
+  <link rel="stylesheet" href="css/issue02.css?v=20261020-15" />
+</head>
+<body class="is-loading" data-page="issue02">
+
+  <!-- ================= LOADER: off the printer ================= -->
+  <div class="loader loader--02" id="loader" aria-hidden="true">
+    <p class="ld-top"><span>DROP/D</span><span>issue 02 — the underground one</span></p>
+    <p class="ld-02" id="ld02"><span>0</span><span>2</span></p>
+    <p class="ld-line" id="ldLine">printing the ones nobody asked for…</p>
+    <div class="ld-foot"><span>nine records your friends haven't heard</span><span class="pix" id="ldPct">000%</span></div>
+  </div>
+
+  <!-- global fx -->
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><i class="cursor__trail"></i><span class="cursor__pick"><svg viewBox="0 0 40 46"><path d="M20 2C11 11 2 23 2 34c0 8 8 11 18 11s18-3 18-11C38 23 29 11 20 2z" /><text x="20" y="38" text-anchor="middle">D</text></svg></span><span class="cursor__tag"><i id="cursorLabel"></i></span></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ================= HEADER ================= -->
+  <header class="hdr" id="hdr">
+    <a href="index.html" class="logo" aria-label="DROP D, issue 01" data-cursor="issue 01">DROP<i>/</i>D</a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html" data-scramble><span>issue 01</span></a>
+      <a href="#desk" data-jump data-scramble><span>desktop</span></a>
+      <a href="#spreads" data-jump data-scramble><span>artists</span></a>
+      <a href="#black" data-jump data-scramble><span>black no. 1</span></a>
+      <a href="#ticket" data-jump data-scramble><span>ticket</span></a>
+      <a href="#list" data-jump data-scramble><span>setlist</span></a>
+      <a href="mixtape.html" data-scramble><span>make a tape</span></a>
+      <a href="artist.html" data-scramble><span>artists</span></a>
+      <a href="tuning.html" data-scramble><span>tuning</span></a>
+      <a href="room.html" data-scramble><span>the room</span></a>
+    </nav>
+    <p class="hdr__now"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span id="hdrNow">nothing on the deck</span></p>
+  </header>
+
+  <main id="top">
+
+    <!-- ========== 1 · FEAR: people from above (the poster) ========== -->
+    <section class="fear" id="fear">
+      <i class="fear__zebra" aria-hidden="true"></i>
+      <p class="fear__k kicker"><span class="pix">issue 02</span> — the ones your friends haven't heard yet</p>
+      <p class="fear__w fear__w--1" aria-hidden="true">inspired<br />by</p>
+      <p class="fear__w fear__w--2" aria-hidden="true">the fear<br />of</p>
+      <p class="fear__w fear__w--3" aria-hidden="true">being<br />average</p>
+      <h1 class="sr">inspired by the fear of being average — DROP D issue 02</h1>
+      <div class="fear__crowd" id="crowd"><!-- filled by issue02.js: nine cut-outs you can drag --></div>
+      <p class="fear__hint pix">drag them around · click one to put it on</p>
+    </section>
+
+    <!-- ========== 2 · THE MAW CALLS: a y2k desktop (revanous) ========== -->
+    <section class="desk" id="desk">
+      <p class="desk__k kicker">2:59 am · someone left the issue open on their desktop</p>
+      <div class="desk__bar glass" data-drag>
+        <span>tap and hold to express yourself</span>
+        <div class="desk__emo"><button data-emo="🎱">🎱</button><button data-emo="💀">💀</button><button data-emo="🦴">🦴</button><button data-emo="♥">♥</button><button data-emo="🎵">🎵</button><button data-emo="+">+</button></div>
+      </div>
+      <div class="win win--1" data-drag data-win="1">
+        <div class="win__top"><i></i><i></i><i></i><span id="win1Title">oct 19th, 2026 at 2:59:07 am</span></div>
+        <div class="win__body slot" id="win1Img"></div>
+      </div>
+      <div class="win win--2" data-drag data-win="2">
+        <div class="win__top"><i></i><i></i><i></i><span id="win2Title">oct 19th, 2026 at 3:03:22 am</span></div>
+        <div class="win__body slot" id="win2Img"></div>
+      </div>
+      <div class="desk__stack" id="deskStack" data-cursor="shuffle"><!-- three photos, click to shuffle --></div>
+      <button class="desk__hud glass" id="deskHud" data-cursor="mute"><span class="desk__hud-jp">音量</span><svg viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6L8 10z" /><path class="hud-x" d="M16 9l5 6M21 9l-5 6" /><path class="hud-on" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11" /></svg><span id="deskHudTxt">ミュート</span></button>
+      <ul class="desk__notes" id="deskNotes" aria-live="polite"><!-- notifications from the artists --></ul>
+      <div class="widget" data-drag>
+        <div class="widget__top"><span class="widget__cover slot slot--mini" id="wCover"></span><span><b id="wTitle">—</b><small id="wArtist">—</small></span></div>
+        <div class="widget__ctrl"><button data-act="prev" aria-label="previous">⏮</button><button data-act="toggle" aria-label="play" class="widget__play"><svg viewBox="0 0 24 24" class="i-play"><path d="M8 5l11 7-11 7z" /></svg><svg viewBox="0 0 24 24" class="i-pause"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" /></svg></button><button data-act="next" aria-label="next">⏭</button></div>
+        <div class="widget__prog"><i id="wProg"></i></div>
+        <p class="widget__foot"><span class="pix">now playing</span><span class="pix" id="wTime">0:00</span></p>
+      </div>
+      <label class="desk__bright" title="brightness"><input type="range" id="deskBright" min="40" max="130" value="100" aria-label="desktop brightness" /><i aria-hidden="true"></i></label>
+      <label class="desk__search glass"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="M20 20l-4-4" /></svg><input id="deskSearch" placeholder="search the issue…" autocomplete="off" /></label>
+      <div class="unlock glass" id="unlock"><span class="unlock__knob" id="unlockKnob" data-cursor="slide">›</span><span class="unlock__txt">slide to unlock <b>the record</b></span></div>
+    </section>
+
+    <!-- ========== 3 · INDEX: dots + script (design is my love language) ========== -->
+    <section class="dots" id="index">
+      <div class="dots__stage">
+        <canvas class="dots__cv" id="dotsCv" aria-hidden="true"></canvas>
+        <p class="dots__script" id="dotsName">Violent Vira</p>
+        <p class="dots__line"><span>is my favourite</span><br /><span>noise &lt;3</span></p>
+      </div>
+      <div class="dots__copy">
+        <p class="kicker" id="dotsFrom">boise, idaho</p>
+        <p class="dots__bio" id="dotsBio">—</p>
+        <p class="dots__ffo"><span class="pix">for fans of</span> <span id="dotsFfo">—</span></p>
+        <button class="dots__play mag" id="dotsPlay" data-play="0" data-cursor="play"><span>put it on</span><i>→</i></button>
+        <a class="dots__file" id="dotsFile" href="artist.html" data-cursor="artist file">the artist file →</a>
+      </div>
+      <ol class="dots__list" id="dotsList"><!-- filled by issue02.js: 01. violent vira … --></ol>
+    </section>
+
+    <!-- ========== 4 · SPREADS: one page per artist, sideways (saviom × postproduction) ========== -->
+    <section class="spreads" id="spreads">
+      <div class="spreads__track" id="spreadsTrack"><!-- filled by issue02.js: nine artist spreads --></div>
+      <p class="spreads__hint pix">scroll → nine artists, sideways</p>
+    </section>
+
+    <!-- ========== 5 · WAVELENGTH: the sound of the issue, blurred ========== -->
+    <section class="wave" id="wave">
+      <div class="wave__card">
+        <canvas class="wave__cv" id="waveCv" aria-hidden="true"></canvas>
+        <i class="wave__line" aria-hidden="true"></i>
+        <p class="wave__brand">DROP<i>/</i>D</p>
+        <div class="wave__meta"><span class="kicker">sound, blurred</span><span class="wave__clock pix" data-clock>00:00</span></div>
+        <p class="wave__t">Wavelength</p>
+        <p class="wave__q">Q-02</p>
+        <p class="wave__p">the whole issue as one long blur. it moves when the music moves. press play anywhere and watch it wake up.</p>
+        <p class="wave__now pix" id="waveNow">—</p>
+      </div>
+    </section>
+
+    <!-- ========== 6 · BLACK NO. 1: the long one ========== -->
+    <section class="black" id="black">
+      <div class="black__pin">
+        <p class="black__k kicker">the longest record in the crate</p>
+        <p class="black__count" id="blackCount">0:00</p>
+        <p class="black__of"><span>of</span> <b class="pix">11:18</b> · type o negative · bloody kisses · 1993</p>
+        <div class="black__rec" aria-hidden="true">
+          <svg class="black__ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" class="r-bg" /><circle cx="50" cy="50" r="48" class="r-fg" id="blackRing" /></svg>
+          <div class="black__vinyl v-green" id="blackVinyl"><span class="black__label slot" id="blackLabel"></span></div>
+        </div>
+        <div class="black__copy">
+          <h2 class="black__t">BLACK NO. 1</h2>
+          <p class="black__p">a love song for a goth girlfriend and her box of black hair dye. eleven minutes and eighteen seconds of green-tinted doom. the counter runs with you as you scroll. put it on and it runs with the song.</p>
+          <button class="black__play mag" data-play="3" data-cursor="eleven minutes"><span>play the long one</span><i>→</i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 7 · TICKET: release show (erarta card) ========== -->
+    <section class="ticket" id="ticket">
+      <div class="ticket__cards" id="ticketCards">
+        <div class="card card--a">
+          <svg class="card__tag" viewBox="0 0 600 260" aria-hidden="true"><text x="300" y="190" text-anchor="middle">drop d</text></svg>
+          <p class="card__label"><b>DROP/D</b><span>issue 02<br />release show</span></p>
+          <i class="card__cross" aria-hidden="true"></i>
+          <i class="card__noise" aria-hidden="true"></i>
+        </div>
+        <div class="card card--b">
+          <p class="card__l">issue 02<br />release show<br />nobody's basement</p>
+          <p class="card__r">sat 31 oct<br />doors 22:00<br />dress code: black</p>
+          <button class="card__qr" id="cardQr" data-play="0" data-queue="0,1,2,3,4,5,6,7,8" data-cursor="scan = play" aria-label="play the whole set"></button>
+          <i class="card__cross" aria-hidden="true"></i>
+          <p class="card__foot"><span>halloween, but tuned down</span><span class="pix">+ 1 friend</span></p>
+        </div>
+      </div>
+      <p class="ticket__k kicker">a concept, like everything here. the qr plays the whole set.</p>
+    </section>
+
+    <!-- ========== 8 · SETLIST: taped to the stage floor ========== -->
+    <section class="stage" id="list">
+      <i class="stage__x stage__x--1" aria-hidden="true"></i><i class="stage__x stage__x--2" aria-hidden="true"></i><i class="stage__x stage__x--3" aria-hidden="true"></i>
+      <p class="stage__k kicker">found taped to the floor after the show</p>
+      <div class="setlist" id="setlist">
+        <i class="tape tape--l" aria-hidden="true"></i><i class="tape tape--r" aria-hidden="true"></i>
+        <p class="setlist__head"><span>DROP/D</span><span>issue 02 — setlist</span></p>
+        <ol class="setlist__rows" id="setRows"><!-- filled by issue02.js --></ol>
+        <p class="setlist__enc">encore: <span>whatever you play twice</span></p>
+        <p class="setlist__note pix">played songs get crossed out · <button id="setReset">un-cross them</button></p>
+      </div>
+      <button class="stage__all mag" data-play="0" data-queue="0,1,2,3,4,5,6,7,8" data-cursor="play the set"><span>play the whole set</span><i>→</i></button>
+      <a href="mixtape.html" class="stage__tape" data-cursor="issue 03">or make your own tape →</a>
+    </section>
+
+    <!-- ========== NEXT ISSUE ticker ========== -->
+    <section class="next" aria-label="back to issue 01">
+      <p class="next__k"><span class="pix">issue 01</span> — the ones everybody knows</p>
+      <a href="index.html" class="next__band" data-cursor="go back"><div class="next__track" id="nextTrack"></div></a>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="ft">
+      <div class="ft__big" aria-hidden="true">DROP<i>/</i>D</div>
+      <div class="ft__grid">
+        <div><p class="kicker">the zine</p><p class="ft__links"><a href="about.html">about</a><a href="profile.html">your profile</a><a href="artist.html">all artists</a><a href="tuning.html">find your tuning</a><a href="room.html">the listening room</a><a href="index.html">issue 01</a><a href="issue02.html">issue 02</a><a href="mixtape.html">issue 03 (yours)</a></p></div>
+        <div><p class="kicker">this issue</p><p class="ft__links"><a href="#fear" data-jump>the crowd</a><a href="#desk" data-jump>desktop</a><a href="#index" data-jump>index</a><a href="#spreads" data-jump>artists</a><a href="#wave" data-jump>wavelength</a><a href="#black" data-jump>black no. 1</a><a href="#ticket" data-jump>ticket</a><a href="#list" data-jump>setlist</a></p></div>
+        <div><p class="kicker">tuning</p><p class="ft__links ft__tune pix">D A D G B E</p></div>
+        <div><p class="kicker">right now</p><p class="ft__clock pix" data-clock>00:00</p><a href="#top" class="link-arrow" data-jump>back to the crowd ↑</a></div>
+      </div>
+      <div class="ft__bottom">
+        <span>© 2026 DROP D — a concept. the records belong to the bands.</span>
+        <span class="ft-sign">concept, design &amp; code by <span class="sig">ghostly.grl</span> ♥</span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ================= THE PLAYER (follows you) ================= -->
+  <div class="bar" id="bar" aria-label="Player">
+    <div class="bar__cover slot slot--mini" id="barCover"></div>
+    <div class="bar__meta"><p class="bar__t" id="barTitle">nothing on the deck</p><p class="bar__a" id="barArtist">pick a record</p></div>
+    <div class="bar__ctrl">
+      <button class="ic" id="prevBtn" aria-label="previous"><svg viewBox="0 0 24 24"><path d="M6 5v14M19 5l-10 7 10 7z" /></svg></button>
+      <button class="play" id="playBtn" aria-label="play" data-cursor="play"><svg viewBox="0 0 24 24" class="i-play"><path d="M8 5l11 7-11 7z" /></svg><svg viewBox="0 0 24 24" class="i-pause"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" /></svg></button>
+      <button class="ic" id="nextBtn" aria-label="next"><svg viewBox="0 0 24 24"><path d="M18 5v14M5 5l10 7-10 7z" /></svg></button>
+    </div>
+    <div class="bar__time"><span id="tCur" class="pix">0:00</span><div class="prog" id="prog" data-cursor="seek"><div class="prog__bars" id="progBars"></div><div class="prog__fill" id="progFill"></div><i class="prog__knob" id="progKnob"></i></div><span id="tDur" class="pix">0:00</span></div>
+    <canvas class="viz" id="viz" width="120" height="36" aria-hidden="true"></canvas>
+    <div class="bar__opts">
+      <button class="ic" id="shuffleBtn" aria-label="shuffle"><svg viewBox="0 0 24 24"><path d="M4 7h3c5 0 5 10 10 10h3M4 17h3c2 0 3-1.5 4-3.5M13 9.5C14 8 15 7 17 7h3M18 4l3 3-3 3M18 14l3 3-3 3" /></svg></button>
+      <button class="ic" id="loopBtn" aria-label="repeat"><svg viewBox="0 0 24 24"><path d="M17 3l3 3-3 3M20 6H8a4 4 0 0 0-4 4v1M7 21l-3-3 3-3M4 18h12a4 4 0 0 0 4-4v-1" /></svg><i class="ic__one">1</i></button>
+      <div class="vol"><button class="ic" id="muteBtn" aria-label="mute"><svg viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6L8 10zM16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11" /></svg></button><input type="range" id="vol" min="0" max="1" step="0.01" value="0.8" aria-label="volume" /></div>
+    </div>
+    <div class="bar__mprog" aria-hidden="true"><i id="mProg"></i></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="js/tracks.js?v=20261020-15"></script>
+  <script src="js/main.js?v=20261020-15"></script>
+  <script src="js/player.js?v=20261020-15"></script>
+  <script src="js/issue02.js?v=20261020-15"></script>
+</body>
+  <!--
+   *    /\_/\      +
+       ( o.o )   <3  ghostly.grl
+   +    > ^ <          *
+-->
+</html>

@@ -1,0 +1,133 @@
+/* =========================================================
+   DROP D — room.css
+   the listening room: lights off, one record, front to back
+   concept, design & code by ghostly.grl ♥
+   ========================================================= */
+:root { --amb: #f4a3c6; }
+html, body { height: 100%; overflow: hidden; background: #050505; color: var(--paper); }
+
+/* ---------- loader ---------- */
+.loader--room { background: #050505; color: var(--paper); }
+.loader--room .ld-top span:first-child { color: var(--paper); }
+.loader--room .ld-top, .loader--room .ld-foot { color: var(--mute-d); }
+.ld-room { font-family: var(--f-sig); font-size: clamp(70px, 12vw, 200px); line-height: 1.1; color: var(--paper); text-shadow: 0 0 40px rgba(244, 163, 198, .35); }
+
+/* ---------- the room ---------- */
+.room { position: fixed; inset: 0; overflow: hidden; }
+.room__bg {
+  position: absolute; inset: -15%; background-size: cover; background-position: center; opacity: .55;
+  filter: blur(70px) saturate(1.5) brightness(.55); transform: scale(1.1); transition: opacity 1.5s, background-image 1s;
+}
+.room__viz { position: absolute; inset: 0; width: 100%; height: 100%; }
+.room__dim { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at 50% 50%, transparent 30%, rgba(0, 0, 0, .65) 100%); }
+
+/* lights off: everything but the record and the visualizer fades away */
+.ui { transition: opacity .9s var(--ease), transform .9s var(--ease); }
+body:not(.is-in) .ui, body.is-dark .ui, body.is-idle .ui { opacity: 0; pointer-events: none; }
+body.is-dark .room__bg { opacity: .25; }
+body.is-idle .cursor { opacity: 0; }
+body.is-idle, body.is-idle * { cursor: none !important; }
+
+.room__top { position: absolute; z-index: 5; left: 0; right: 0; top: 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px var(--gutter); }
+.room__nav { display: flex; gap: 22px; font-family: var(--f-pix); font-size: 11px; text-transform: uppercase; }
+.room__nav a { opacity: .55; transition: opacity .3s; }
+.room__nav a:hover, .room__nav a.is-here { opacity: 1; }
+.room__nav a.is-here { color: var(--amb); }
+.room__clock { font-size: 12px; opacity: .7; }
+
+/* ---------- the record ---------- */
+.room__disc { position: absolute; z-index: 2; left: 50%; top: 50%; width: min(52vh, 46vw); aspect-ratio: 1; transform: translate(-50%, -54%); cursor: pointer; }
+.room__vinyl {
+  position: absolute; inset: 0; border-radius: 50%; will-change: transform;
+  background: conic-gradient(from 30deg, transparent 0 10%, rgba(255, 255, 255, .1) 14%, transparent 18% 58%, rgba(255, 255, 255, .07) 62%, transparent 66%), repeating-radial-gradient(circle, #0e0e0e 0 2px, #1a1a1a 2px 4px);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, .8), 0 0 0 1px rgba(255, 255, 255, .06), 0 0 120px color-mix(in srgb, var(--amb) 25%, transparent);
+}
+.room__label { position: absolute; inset: 31%; border-radius: 50%; outline: 0; background: var(--amb); }
+.room__label[data-n]:not(.has-img)::after { color: var(--ink); font-size: 12px; text-transform: uppercase; }
+.room__hole { position: absolute; left: 50%; top: 50%; width: 3%; height: 3%; margin: -1.5% 0 0 -1.5%; border-radius: 50%; background: #050505; box-shadow: 0 0 0 2px rgba(255, 255, 255, .2); }
+
+/* ---------- info ---------- */
+.room__info { position: absolute; z-index: 4; left: var(--gutter); bottom: 112px; width: min(46vw, 560px); display: flex; flex-direction: column; gap: 8px; }
+.room__info .kicker { color: var(--mute-d); }
+.room__album { font-family: var(--f-cond); font-size: clamp(36px, 4.6vw, 80px); line-height: .92; text-transform: uppercase; text-shadow: 0 6px 30px rgba(0, 0, 0, .5); }
+.room__artist { font-size: 15px; }
+.room__artist .pix { font-size: 11px; color: var(--mute-d); margin-left: 6px; }
+.room__track { font-family: var(--f-tag); font-size: clamp(20px, 1.8vw, 28px); color: var(--amb); }
+.room__track .pix { font-family: var(--f-pix); font-size: 11px; color: var(--mute-d); margin-right: 6px; }
+.room__prog { position: relative; height: 14px; margin-top: 6px; cursor: pointer; touch-action: none; }
+.room__prog::before { content: ""; position: absolute; left: 0; right: 0; top: 6px; height: 2px; background: rgba(242, 240, 235, .18); }
+.room__prog i { position: absolute; left: 0; top: 6px; height: 2px; width: 100%; background: var(--amb); transform-origin: left; transform: scaleX(0); box-shadow: 0 0 12px var(--amb); }
+.room__time { font-size: 11px; color: var(--mute-d); }
+.room__side { margin-left: 10px; color: var(--amb); }
+
+/* ---------- tracklist ---------- */
+.room__list { position: absolute; z-index: 4; right: var(--gutter); top: 50%; transform: translateY(-55%); width: min(300px, 26vw); max-height: 60vh; overflow-y: auto; scrollbar-width: none; }
+.room__list .kicker { color: var(--mute-d); margin-bottom: 10px; }
+.room__list li { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 8px; padding: 7px 0; border-top: 1px solid rgba(242, 240, 235, .1); font-size: 13.5px; cursor: pointer; opacity: .6; transition: opacity .3s, color .3s, padding .4s var(--ease); }
+.room__list li:hover { opacity: 1; padding-left: 6px; }
+.room__list li span:first-child, .room__list li span:last-child { font-family: var(--f-pix); font-size: 10px; color: var(--mute-d); }
+.room__list li b { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.room__list li.is-on { opacity: 1; color: var(--amb); }
+.room__list li.is-done b { text-decoration: line-through; text-decoration-color: rgba(242, 240, 235, .3); }
+
+/* ---------- controls ---------- */
+.room__ctrl { position: absolute; z-index: 5; left: 50%; bottom: 26px; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-radius: 99px; background: rgba(10, 10, 10, .78); border: 1px solid rgba(242, 240, 235, .12); white-space: nowrap; }
+.room__ctrl > * { flex: none; }
+.rc { width: 22px; height: 22px; color: rgba(242, 240, 235, .7); transition: color .3s; }
+.rc svg { width: 100%; height: 100%; }
+.rc:hover { color: var(--paper); }
+.rc--play { width: 46px; height: 46px; border-radius: 50%; background: var(--paper); color: var(--ink); display: grid; place-items: center; }
+.rc--play svg { width: 18px; height: 18px; fill: currentColor; stroke: none; grid-area: 1 / 1; }
+.rc--play:hover { background: var(--amb); color: var(--ink); }
+.rc__sep { width: 1px; height: 22px; background: rgba(242, 240, 235, .15); }
+.rc__modes { display: flex; gap: 4px; }
+.rc__mode, .rc__txt { height: 30px; padding: 0 12px; border-radius: 99px; font-family: var(--f-pix); font-size: 10px; text-transform: uppercase; color: rgba(242, 240, 235, .7); transition: background .3s, color .3s; }
+.rc__mode:hover, .rc__txt:hover { color: var(--paper); background: rgba(242, 240, 235, .08); }
+.rc__mode.is-on { background: var(--amb); color: var(--ink); }
+.rc__txt kbd { font-family: var(--f-mono); font-size: 9px; opacity: .5; margin-left: 4px; }
+.rc__txt.is-on { color: var(--amb); }
+
+/* ---------- the crate (pick a record) ---------- */
+.crate2 {
+  position: absolute; z-index: 8; left: 0; right: 0; bottom: 0; height: min(64vh, 560px); padding: 26px 0 0;
+  background: linear-gradient(to top, rgba(5, 5, 5, .98) 55%, rgba(5, 5, 5, 0)); transform: translateY(100%); transition: transform .9s var(--ease-io);
+  display: flex; flex-direction: column;
+}
+body.crate-open .crate2 { transform: none; }
+.crate2__head { display: flex; align-items: baseline; gap: 20px; padding: 0 var(--gutter) 10px; flex-wrap: wrap; }
+.crate2__t { font-family: var(--f-cond); font-size: clamp(30px, 3.4vw, 54px); line-height: 1; }
+.crate2__p { font-size: 12.5px; color: var(--mute-d); }
+.crate2__x { margin-left: auto; font-family: var(--f-pix); font-size: 10.5px; text-transform: uppercase; color: var(--mute-d); }
+.crate2__x:hover { color: var(--paper); }
+.crate2__row { flex: 1; display: flex; align-items: flex-end; gap: 0; overflow-x: auto; overflow-y: hidden; padding: 30px var(--gutter) 34px; scrollbar-width: none; perspective: 1200px; cursor: grab; }
+.crate2__row::-webkit-scrollbar { display: none; }
+.crate2__row.is-drag { cursor: grabbing; }
+.sleeve { position: relative; flex: none; width: clamp(150px, 15vw, 220px); margin-right: -34px; transform-origin: 50% 100%; transform: rotateX(18deg) rotateY(-22deg); transition: transform .5s var(--ease), margin .5s var(--ease); cursor: pointer; }
+.sleeve:hover { transform: rotateX(0) rotateY(0) translateY(-34px); margin-right: 12px; z-index: 3; }
+.sleeve .slot { aspect-ratio: 1; box-shadow: -10px 0 30px rgba(0, 0, 0, .7); outline-offset: -6px; }
+.sleeve .slot:not(.has-img) { background: radial-gradient(circle at 1px 1px, rgba(242, 240, 235, .14) 1px, transparent 1.4px) 0 0 / 7px 7px, #151515; }
+.sleeve .slot[data-n]:not(.has-img)::after { color: var(--mute-d); font-size: 10px; padding: 8px; text-align: center; }
+.sleeve p { margin-top: 10px; opacity: 0; transition: opacity .4s; }
+.sleeve:hover p, .sleeve.is-on p { opacity: 1; }
+.sleeve b { display: block; font-family: var(--f-cond); font-weight: 400; font-size: 18px; line-height: 1; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sleeve small { font-size: 11.5px; color: var(--mute-d); }
+.sleeve.is-on .slot { box-shadow: 0 0 0 3px var(--amb), -10px 0 30px rgba(0, 0, 0, .7); }
+
+.room__sig { position: absolute; z-index: 4; right: var(--gutter); bottom: 34px; color: var(--mute-d); }
+.room__sig .ft-sign { color: var(--mute-d); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1100px) {
+  .room__list { display: none; }
+  .room__sig { display: none; }
+}
+@media (max-width: 760px) {
+  .room__nav { display: none; }
+  .room__disc { width: 78vw; top: 38%; }
+  .room__info { width: auto; right: var(--gutter); bottom: 128px; }
+  .room__album { font-size: 34px; }
+  .room__ctrl { bottom: 14px; left: 10px; right: 10px; transform: none; gap: 6px; padding: 8px 10px; overflow-x: auto; scrollbar-width: none; justify-content: flex-start; }
+  .rc__sep { display: none; }
+  .rc__txt kbd { display: none; }
+  .sleeve { width: 130px; margin-right: -26px; }
+}
