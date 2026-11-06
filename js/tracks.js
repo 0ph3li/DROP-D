@@ -2,13 +2,6 @@
    DROP D — tracks.js (the data: every page reads it)
    heavy music, soft paper
    concept, design & code by ghostly.grl ♥
-
-   HOW TO ADD YOUR SONGS
-   1. drop the audio file in /SONGS with the exact name in `src`
-      (or change `src` to whatever your file is called)
-   2. put the album cover in /img/RECORDS with the name in `cover`
-   3. reload. a missing file never breaks anything — the deck
-      "plays it in your head" and tells you which file it wanted.
    ========================================================= */
 window.DD_DATA = {
   tracks: [
